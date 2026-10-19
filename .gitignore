@@ -1,0 +1,10 @@
+data/raw/
+data/processed/*.csv
+*.pt
+*.bin
+*.safetensors
+.env
+__pycache__/
+venv/
+.ipynb_checkpoints/
+Untitled*.ipynb
