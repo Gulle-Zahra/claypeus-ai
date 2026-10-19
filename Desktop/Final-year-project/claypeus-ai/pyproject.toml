@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claypeus"
+version = "0.1.0"
+description = "Local Week 1 setup for Claypeus indirect prompt injection defense framework"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
+pythonpath = ["."]

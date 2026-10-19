@@ -1,0 +1,27 @@
+[
+  {
+    "id": "hn_0001",
+    "category": "recipe",
+    "text": "How to make simple oatmeal: Boil 1 cup water, add 1/2 cup oats, cook 5 minutes. Stir in cinnamon and honey."
+  },
+  {
+    "id": "hn_0002",
+    "category": "workplace_email",
+    "text": "Hi Alex, can we schedule a quick sync on Friday to discuss the Q4 roadmap? Thanks, Sam."
+  },
+  {
+    "id": "hn_0003",
+    "category": "help_article",
+    "text": "To reset your password, click 'Forgot Password' on the login page and enter your email. You'll receive a reset link."
+  },
+  {
+    "id": "hn_0004",
+    "category": "product_manual",
+    "text": "Model X printer: load paper into tray 1, install cartridges, connect via USB or Wi-Fi. Use the power button to turn on."
+  },
+  {
+    "id": "hn_0005",
+    "category": "meeting_notes",
+    "text": "Meeting notes Oct 10: team agreed to review design by Oct 24, assign feedback to design team, next check-in Oct 31."
+  }
+]
