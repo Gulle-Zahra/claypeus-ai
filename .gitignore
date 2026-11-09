@@ -20,3 +20,7 @@ data/processed/*.csv
 .DS_Store
 .vscode/
 .idea/
+
+# Build artifacts
+*.egg-info/
+.pytest_cache/

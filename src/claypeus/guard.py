@@ -1,6 +1,8 @@
 import re
 from typing import Dict, List, Any
 
+from .sanitizer import Sanitizer
+
 
 class Guard:
     """Guard class for detecting and sanitizing indirect prompt injection attempts."""
@@ -88,13 +90,15 @@ class Guard:
     def __init__(self, patterns: List[str] = None):
         self.patterns = patterns if patterns is not None else self.DEFAULT_PATTERNS
         self._compiled_patterns = [re.compile(p, re.IGNORECASE) for p in self.patterns]
+        self._sanitizer = Sanitizer()
 
     def sanitize(self, text: str) -> Dict[str, Any]:
         """
-        Sanitize text by flagging potential prompt injection attempts.
-        Returns a dict with sanitized text and detection results.
+        Flag prompt injection spans and replace merged matches with a placeholder.
         """
-        if not isinstance(text, str):
+        if text is None:
+            text = ""
+        elif not isinstance(text, str):
             text = str(text)
 
         matches = []
@@ -107,11 +111,17 @@ class Guard:
                     "end": match.end(),
                 })
 
+        cleaned = self._sanitizer.sanitize(text, matches)
         flagged = len(matches) > 0
 
         return {
             "text": text,
+            "sanitized_text": cleaned["sanitized_text"],
             "flagged": flagged,
             "matches": matches,
             "num_matches": len(matches),
+            "replaced_spans": cleaned["replaced_spans"],
+            "num_replacements": cleaned["num_replacements"],
+            "empty_input": cleaned["empty_input"],
+            "empty_result": cleaned["empty_result"],
         }
